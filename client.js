@@ -48,6 +48,13 @@ function formHandler(event) {
     <td>${employeeTitleEl.value}</td>
     <td>${parseInt(employeeAnnualSalaryEl.value)}</td>
   </tr>`;
+
+  //clear form fields
+  employeeFirstNameEl.value = '';
+  employeeLastNameEl.value = '';
+  employeeIdEl.value = '';
+  employeeTitleEl.value = '';
+  employeeAnnualSalaryEl.value = '';
 }
 
 //call onReady when DOM is ready
