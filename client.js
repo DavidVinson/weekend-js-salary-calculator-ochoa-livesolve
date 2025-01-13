@@ -56,6 +56,7 @@ function formHandler(event) {
   document.querySelector('form').reset();
 }
 
+// function to append employee to the DOM
 function displayEmployees(employee) {
   const tableBody = document.getElementById('employee-list');
 
@@ -70,6 +71,7 @@ function displayEmployees(employee) {
     </tr>`;
 }
 
+// function to remove an employee from the DOM
 function removeEmployee(event, salary) {
   // Get the employee row to be deleted
   const employeeRow = event.target.closest('tr');
