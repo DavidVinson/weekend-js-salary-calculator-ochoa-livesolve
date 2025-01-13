@@ -26,6 +26,7 @@ function formHandler(event) {
 
   console.log('newEmployee', newEmployee);
 
+  //call displayEmployees with one newEmployee object
   displayEmployees(newEmployee);
 
   //get total monthly element
@@ -33,15 +34,16 @@ function formHandler(event) {
   //   console.log('total', totalMonthlyEl);
 
   totalMonthlyCost += parseInt(employeeAnnualSalaryEl.value) / 12;
-  console.log('totalMonthlyCost', totalMonthlyCost);
+  //   console.log('totalMonthlyCost', totalMonthlyCost);
 
   if (totalMonthlyCost > 20000) {
-    //add a class to turn the span red
+    // add a class to turn the span red
     // totalMonthlyEl.style.background = 'red';
-    totalMonthlyEl.classList.add('red-background');
+    // totalMonthlyEl.classList.add('red-background');
+    document.querySelector('h2').classList.add('red-background');
   }
 
-  totalMonthlyEl.textContent = `${totalMonthlyCost.toFixed(2)}`;
+  totalMonthlyEl.textContent = `$${totalMonthlyCost.toFixed(2)}`;
 
   //clear form fields
   //   employeeFirstNameEl.value = '';
@@ -58,7 +60,7 @@ function displayEmployees(employee) {
   const tableBody = document.getElementById('employee-list');
 
   tableBody.innerHTML += `
-    <tr id=${employee.id}>
+    <tr>
       <td>${employee.firstName}</td>
       <td>${employee.lastName}</td>
       <td>${employee.id}</td>
@@ -76,8 +78,17 @@ function removeEmployee(event, salary) {
   const totalMonthlyEl = document.getElementById('total-monthly');
 
   totalMonthlyCost -= salary / 12;
+
+  if (totalMonthlyCost < 0.01) {
+    // add a class to turn the span red
+    // totalMonthlyEl.style.background = 'red';
+    // totalMonthlyEl.classList.add('red-background');
+    document.querySelector('h2').classList.remove('red-background');
+  }
+
+  totalMonthlyEl.textContent = `$${totalMonthlyCost.toFixed(2)}`;
   //update dom with new monthly salary
-  totalMonthlyEl.textContent = `${totalMonthlyCost.toFixed(2)}`;
+  totalMonthlyEl.textContent = `$${totalMonthlyCost.toFixed(2)}`;
 
   // Remove the employee row from the table
   employeeRow.remove();
