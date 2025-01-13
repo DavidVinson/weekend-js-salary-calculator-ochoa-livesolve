@@ -30,6 +30,24 @@ function formHandler(event) {
   //   };
 
   //   console.log('newEmployee', newEmployee);
+
+  //   <tr>
+  //             <td>Joe</td>
+  //             <td>Smith</td>
+  //             <td>4</td>
+  //             <td>Dev</td>
+  //             <td>4500</td>
+  //           </tr>
+
+  const tableBody = document.getElementById('employee-list');
+  tableBody.innerHTML += `
+  <tr>
+    <td>${employeeFirstNameEl.value}</td>
+    <td>${employeeLastNameEl.value}</td>
+    <td>${employeeIdEl.value}</td>
+    <td>${employeeTitleEl.value}</td>
+    <td>${parseInt(employeeAnnualSalaryEl.value)}</td>
+  </tr>`;
 }
 
 //call onReady when DOM is ready
