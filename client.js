@@ -1,3 +1,5 @@
+let total = 0;
+
 function onReady() {
   console.log('client is working...');
 }
@@ -47,14 +49,38 @@ function formHandler(event) {
     <td>${employeeIdEl.value}</td>
     <td>${employeeTitleEl.value}</td>
     <td>${parseInt(employeeAnnualSalaryEl.value)}</td>
+    <td><button onclick="removeEmployee(event)">remove emp</button></td>
   </tr>`;
 
   //clear form fields
-  employeeFirstNameEl.value = '';
-  employeeLastNameEl.value = '';
-  employeeIdEl.value = '';
-  employeeTitleEl.value = '';
-  employeeAnnualSalaryEl.value = '';
+  //   employeeFirstNameEl.value = '';
+  //   employeeLastNameEl.value = '';
+  //   employeeIdEl.value = '';
+  //   employeeTitleEl.value = '';
+  //   employeeAnnualSalaryEl.value = '';
+
+  //get total monthly element
+  const totalMonthlyEl = document.getElementById('total-monthly');
+  //   console.log('total', totalMonthlyEl);
+
+  total += parseInt(employeeAnnualSalaryEl.value) / 12;
+  console.log('total', total);
+
+  if (total > 20000) {
+    //add a class to turn the span red
+    // totalMonthlyEl.style.background = 'red';
+    totalMonthlyEl.classList.add('red');
+  }
+
+  totalMonthlyEl.textContent = `${total.toFixed(2)}`;
+
+  //clears form inputs using form method .reset()
+  //   document.querySelector('form').reset();
+}
+
+function removeEmployee(event, annualSalary) {
+  console.log('remove this employee and subtract this amount');
+  event.target.closest('tr').remove();
 }
 
 //call onReady when DOM is ready
