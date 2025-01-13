@@ -11,9 +11,35 @@
     <h1>Salary Calculator</h1>
     <main>
       <form onsubmit="formHandler(event)">
-        <input id="first-name-input" placeholder="First Name" />
+        <!-- first name, last name, ID number, job title, annual salary. -->
+        <input id="first-name-input" placeholder="First Name" value="Joe" />
+        <input id="last-name-input" placeholder="Last Name" value="Smith" />
+        <input id="id-input" placeholder="ID" value="4" />
+        <input id="job-title-input" placeholder="Title" value="dev" />
+        <input id="annual-salary-input" placeholder="Annual Salary" value="4500" />
         <button type="submit">Submit</button>
       </form>
+      <!-- where employee will go -->
+      <table>
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Annual Salary</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Joe</td>
+            <td>Smith</td>
+            <td>4</td>
+            <td>Dev</td>
+            <td>4500</td>
+          </tr>
+        </tbody>
+      </table>
     </main>
   </body>
 </html>
